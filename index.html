@@ -13,6 +13,8 @@
   <div class="test-element-three">Test Element Three</div>
   <div class="test-element-four">Test Element Four</div>
 
+  <button class="btn">Button</button>
+
 <script src="sammy.js"></script>
 <script>
 sammy.ready(function() {
@@ -26,6 +28,10 @@ sammy.ready(function() {
   sammy(".test-element-three").removeClass("test-element-three");
   // Toggle the toggle class on the element
   sammy(".test-element-four").toggleClass("toggle");
+  sammy(".btn").toggleClass("active").on("click", function () {
+    // Using the element reference within the event callback
+    this.classList.toggle("clicked");
+  });
 });
 </script>
 </body>

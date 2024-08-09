@@ -1,7 +1,7 @@
 (function(window) {
   const sammyLibrary = {
     // Property that outputs the version of the library
-    version: "0.0.5",
+    version: "0.1.0",
 
     sammy(selector) {
       // Select elements based on the selector parameter
@@ -31,6 +31,7 @@
           return this;
         },
 
+        // Toggle classes on elements, this can be chained to the other methods in the library
         toggleClass: function(className) {
           elements.forEach(function(element) {
             if (element.classList.contains(className)) {
@@ -47,7 +48,21 @@
           });
           // Allow method chaining
           return this;
-        }
+        },
+
+        // Add an event listener to elements
+        on: function(eventType, callback) {
+          if (typeof eventType !== "string" || typeof callback !== "function") {
+            throw new Error("Event type must be a string and callback must be a function.");
+          }
+          elements.forEach(function(element) {
+            element.addEventListener(eventType, function(event) {
+              callback.call(element, event);
+            });
+          });
+          // Allow method chaining
+          return this;
+        },
       };
       
       return methods;
