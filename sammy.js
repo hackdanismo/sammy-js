@@ -1,7 +1,7 @@
 (function(window) {
   const sammyLibrary = {
     // Property that outputs the version of the library
-    version: "0.0.3",
+    version: "0.0.4",
 
     sammy(selector) {
       // Select elements based on the selector parameter
@@ -12,6 +12,20 @@
         addClass: function(className) {
           elements.forEach(function(element) {
             element.classList.add(className);
+          });
+          // Allow method chaining
+          return this;
+        },
+
+        // Remove a class from an element and the class attribute if no classes remain
+        removeClass: function(className) {
+          elements.forEach(function(element) {
+            element.classList.remove(className);
+            // Check if the element has any classes remaining
+            if (element.classList.length === 0) {
+              // If no classes remain, remove the class attribute from the element also
+              element.removeAttribute("class");
+            }
           });
           // Allow method chaining
           return this;

@@ -9,6 +9,8 @@
 <body>
 
   <div class="test-element-one">Test Element One</div>
+  <div class="test-element-two extra-class">Test Element Two</div>
+  <div class="test-element-three">Test Element Three</div>
 
 <script src="sammy.js"></script>
 <script>
@@ -17,6 +19,10 @@ sammy.ready(function() {
 
   // Add a class to the test-element-one element
   sammy(".test-element-one").addClass("test-class");
+  // Remove the extra-class from the test-element-two element
+  sammy(".test-element-two").removeClass("extra-class");
+  // Remove the test-element-three class and the class attribute as no further classes are required
+  sammy(".test-element-three").removeClass("test-element-three");
 });
 </script>
 </body>
