@@ -1,7 +1,7 @@
 (function(window) {
   const sammyLibrary = {
     // Property that outputs the version of the library
-    version: "0.0.4",
+    version: "0.0.5",
 
     sammy(selector) {
       // Select elements based on the selector parameter
@@ -25,6 +25,24 @@
             if (element.classList.length === 0) {
               // If no classes remain, remove the class attribute from the element also
               element.removeAttribute("class");
+            }
+          });
+          // Allow method chaining
+          return this;
+        },
+
+        toggleClass: function(className) {
+          elements.forEach(function(element) {
+            if (element.classList.contains(className)) {
+              element.classList.remove(className);
+
+              // Check if the element has any classes remaining
+              if (element.classList.length === 0) {
+                // If no classes remain on the element, remove the class attribute from the element
+                element.removeAttribute("class");
+              }
+            } else {
+              element.classList.add(className);
             }
           });
           // Allow method chaining
