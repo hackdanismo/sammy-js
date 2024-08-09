@@ -1,11 +1,21 @@
 (function(window) {
   const sammyLibrary = {
     // Property that outputs the version of the library
-    version: "0.0.2",
+    version: "0.0.3",
 
     sammy(selector) {
-      const methods = {
+      // Select elements based on the selector parameter
+      const elements = document.querySelectorAll(selector);
 
+      const methods = {
+        // Add a class to an element in the DOM
+        addClass: function(className) {
+          elements.forEach(function(element) {
+            element.classList.add(className);
+          });
+          // Allow method chaining
+          return this;
+        }
       };
       
       return methods;

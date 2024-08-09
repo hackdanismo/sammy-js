@@ -8,10 +8,15 @@
 </head>
 <body>
 
+  <div class="test-element-one">Test Element One</div>
+
 <script src="sammy.js"></script>
 <script>
 sammy.ready(function() {
   console.log(sammy.version);
+
+  // Add a class to the test-element-one element
+  sammy(".test-element-one").addClass("test-class");
 });
 </script>
 </body>
