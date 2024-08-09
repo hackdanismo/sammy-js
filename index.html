@@ -10,7 +10,9 @@
 
 <script src="sammy.js"></script>
 <script>
-console.log(sammy.version);
+sammy.ready(function() {
+  console.log(sammy.version);
+});
 </script>
 </body>
 </html>
