@@ -1,7 +1,7 @@
 (function(window) {
   const sammyLibrary = {
     // Property that outputs the version of the library
-    version: "0.4.1",
+    version: "0.6.0",
 
     sammy(selector) {
       let elements = [];
@@ -23,6 +23,8 @@
             addAttribute: () => this,
             removeAttribute: () => this,
             on: () => this,
+            html: () => this,
+            text: () => this,
             hide: () => this,
             show: () => this,
           };
@@ -109,6 +111,32 @@
             element.addEventListener(eventType, function(event) {
               callback.call(element, event);
             });
+          });
+          // Allow method chaining
+          return this;
+        },
+
+        // Get or set the inner HTML of an element to allow manipulation of its content
+        html: function(htmlContent) {
+          if (htmlContent === undefined) {
+            // Return the HTML content of the first element
+            return elements[0] ? elements[0].innerHTML : undefined;
+          }
+          elements.forEach(function(element) {
+            element.innerHTML = htmlContent;
+          });
+          // Allow method chaining
+          return this;
+        },
+
+        // Get or set the text content of an element and working with text nodes
+        text: function(textContent) {
+          if (textContent === undefined) {
+            // Return the text content of the first element
+            return elements[0] ? elements[0].textContent : undefined;
+          }
+          elements.forEach(function(element) {
+            element.textContent = textContent;
           });
           // Allow method chaining
           return this;

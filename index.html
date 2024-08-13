@@ -19,6 +19,8 @@
   <div class="add-attribute">Test Element Six</div>
   <div class="hidden-element" style="display: none;">Hidden Element</div>
   <div class="hide-this-element">Hide this Element</div>
+  <div class="text-element"></div>
+  <div class="html-element"></div>
 
 <script src="sammy.js"></script>
 <script>
@@ -41,6 +43,8 @@ sammy.ready(function() {
   sammy(".add-attribute").addAttribute("id", "testID");
   sammy(".hidden-element").show();
   sammy(".hide-this-element").hide();
+  sammy(".text-element").text("Hello World!!!");
+  sammy(".html-element").html("<p>Test</p>");
 });
 </script>
 </body>
