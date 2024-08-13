@@ -1,7 +1,7 @@
 (function(window) {
   const sammyLibrary = {
     // Property that outputs the version of the library
-    version: "0.10.0",
+    version: "0.10.1",
 
     sammy(selector) {
       let elements = [];
@@ -92,6 +92,10 @@
               element.style.display = "";
             } else {
               element.style.display = "none";
+            }
+            // Remove the style attribute if it has no other properties
+            if (element.style.cssText.trim() === "") {
+              element.removeAttribute("style");
             }
           });
           // Allow method chaining
