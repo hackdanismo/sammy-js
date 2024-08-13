@@ -1,7 +1,7 @@
 (function(window) {
   const sammyLibrary = {
     // Property that outputs the version of the library
-    version: "0.4.0",
+    version: "0.4.1",
 
     sammy(selector) {
       let elements = [];
@@ -126,7 +126,13 @@
         // Apply style attribute to set the display to be empty to show a hidden element
         show: function() {
           elements.forEach(function(element) {
+            // Reset to the default display value
             element.style.display = "";
+
+            // Check if the style attribute is empty after resetting the display value
+            if (element.style.cssText.trim() === "") {
+              element.removeAttribute("style");
+            }
           });
           // Allow method chaining
           return this;
