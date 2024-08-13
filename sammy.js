@@ -1,11 +1,35 @@
 (function(window) {
   const sammyLibrary = {
     // Property that outputs the version of the library
-    version: "0.1.0",
+    version: "0.1.1",
 
     sammy(selector) {
-      // Select elements based on the selector parameter
-      const elements = document.querySelectorAll(selector);
+      let elements = [];
+
+      // Functionality to handle both CSS selectors as strings and individual DOM elements
+      if (typeof selector === "string") {
+        // Select elements based on the selector parameter if the selector is a string
+        elements = document.querySelectorAll(selector);
+
+        // Warn if no elements are found
+        if (elements.length === 0) {
+          console.warn(`No elements found for the selector: "${selector}".`);
+          // Return an object when no elements are found
+          return {
+            // Each method allows method chaining to continue without throwing a runtime error to be fail safe
+            addClass: () => this,
+            removeClass: () => this,
+            toggleClass: () => this,
+            on: () => this,
+          };
+        }
+      } else if (selector instanceof Element) {
+        // If a single element is passed, wrap it in an array
+        elements = [selector];
+      } else {
+        // Warn if the selector is neither a string nor an Element
+        console.warn("Invalid selector: Selector must be a string or a DOM element.");
+      }
 
       const methods = {
         // Add a class to an element in the DOM
