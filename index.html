@@ -24,6 +24,9 @@
   <div class="text-element"></div>
   <div class="html-element"></div>
 
+  <div class="accordion-item">Accordion Item</div>
+  <button class="accordion-btn">Toggle</button>
+
 <script src="sammy.js"></script>
 <script>
 sammy.ready(function() {
@@ -37,7 +40,7 @@ sammy.ready(function() {
   sammy(".test-element-three").removeClass("test-element-three");
   // Toggle the toggle class on the element
   sammy(".test-element-four").toggleClass("toggle");
-  sammy(".btn").toggleClass("active").on("click", function () {
+  sammy(".btn").toggleClass("active").on("click", function() {
     // Using the element reference within the event callback
     this.classList.toggle("clicked");
   });
@@ -57,6 +60,10 @@ sammy.ready(function() {
   console.log("The first element has the background color:", backgroundColor);
   // Set the text color for all elements with the class "example-css"
   sammy(".example-css").css("color", "yellow");
+
+  sammy(".accordion-btn").on("click", function() {
+    sammy(".accordion-item").toggle();
+  });
 });
 </script>
 </body>

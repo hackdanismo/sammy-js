@@ -1,7 +1,7 @@
 (function(window) {
   const sammyLibrary = {
     // Property that outputs the version of the library
-    version: "0.8.0",
+    version: "0.9.0",
 
     sammy(selector) {
       let elements = [];
@@ -20,6 +20,7 @@
             addClass: () => this,
             removeClass: () => this,
             toggleClass: () => this,
+            toggle: () => this,
             addAttribute: () => this,
             removeAttribute: () => this,
             css: () => this,
@@ -77,6 +78,19 @@
               }
             } else {
               element.classList.add(className);
+            }
+          });
+          // Allow method chaining
+          return this;
+        },
+
+        // Toggle the visibility of elements, switching between show and hide
+        toggle: function() {
+          elements.forEach(function(element) {
+            if (window.getComputedStyle(element).display === "none") {
+              element.style.display = "";
+            } else {
+              element.style.display = "none";
             }
           });
           // Allow method chaining
