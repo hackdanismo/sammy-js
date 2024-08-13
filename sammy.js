@@ -1,7 +1,7 @@
 (function(window) {
   const sammyLibrary = {
     // Property that outputs the version of the library
-    version: "0.1.1",
+    version: "0.2.0",
 
     sammy(selector) {
       let elements = [];
@@ -20,6 +20,7 @@
             addClass: () => this,
             removeClass: () => this,
             toggleClass: () => this,
+            removeAttribute: () => this,
             on: () => this,
           };
         }
@@ -69,6 +70,15 @@
             } else {
               element.classList.add(className);
             }
+          });
+          // Allow method chaining
+          return this;
+        },
+
+        // Remove an attribute from an element
+        removeAttribute: function(attributeName) {
+          elements.forEach(function(element) {
+            element.removeAttribute(attributeName);
           });
           // Allow method chaining
           return this;
