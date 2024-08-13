@@ -1,7 +1,7 @@
 (function(window) {
   const sammyLibrary = {
     // Property that outputs the version of the library
-    version: "0.2.0",
+    version: "0.3.0",
 
     sammy(selector) {
       let elements = [];
@@ -20,6 +20,7 @@
             addClass: () => this,
             removeClass: () => this,
             toggleClass: () => this,
+            addAttribute: () => this,
             removeAttribute: () => this,
             on: () => this,
           };
@@ -70,6 +71,19 @@
             } else {
               element.classList.add(className);
             }
+          });
+          // Allow method chaining
+          return this;
+        },
+
+        // Add an attribute to an element. This requires a name and a value
+        addAttribute: function(attributeName, attributeValue) {
+          // Throw an error if either the name and/or value is not provided as an argument
+          if (attributeName === undefined || attributeValue === undefined || attributeName === null || attributeValue === null) {
+            throw new Error("Both attribute name and value must be provided and cannot be null.");
+          }
+          elements.forEach(function(element) {
+            element.setAttribute(attributeName, attributeValue);
           });
           // Allow method chaining
           return this;

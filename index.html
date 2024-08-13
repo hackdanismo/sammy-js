@@ -16,6 +16,7 @@
   <button class="btn">Button</button>
 
   <div class="remove-attribute" id="testId">Test Element Five</div>
+  <div class="add-attribute">Test Element Six</div>
 
 <script src="sammy.js"></script>
 <script>
@@ -35,6 +36,7 @@ sammy.ready(function() {
     this.classList.toggle("clicked");
   });
   sammy(".remove-attribute").removeAttribute("id");
+  sammy(".add-attribute").addAttribute("id", "testID");
 });
 </script>
 </body>
