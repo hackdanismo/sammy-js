@@ -1,7 +1,7 @@
 (function(window) {
   const sammyLibrary = {
     // Property that outputs the version of the library
-    version: "0.9.0",
+    version: "0.10.0",
 
     sammy(selector) {
       let elements = [];
@@ -31,6 +31,7 @@
             show: () => this,
             append: () => this,
             prepend: () => this,
+            remove: () => this,
           };
         }
       } else if (selector instanceof Element) {
@@ -221,6 +222,15 @@
           // Allow method chaining
           return this;
         },
+
+        // Remove select elements from the DOM
+        remove: function() {
+          elements.forEach(function(element) {
+            element.remove();
+          });
+          // Allow method chaining
+          return this;
+        }
       };
       
       return methods;

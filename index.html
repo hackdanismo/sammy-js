@@ -27,6 +27,8 @@
   <div class="accordion-item">Accordion Item</div>
   <button class="accordion-btn">Toggle</button>
 
+  <div class="removed-element">Removed Element</div>
+
 <script src="sammy.js"></script>
 <script>
 sammy.ready(function() {
@@ -64,6 +66,8 @@ sammy.ready(function() {
   sammy(".accordion-btn").on("click", function() {
     sammy(".accordion-item").toggle();
   });
+
+  sammy(".removed-element").remove();
 });
 </script>
 </body>
