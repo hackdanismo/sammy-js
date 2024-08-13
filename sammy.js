@@ -1,5 +1,5 @@
 /*
- * sammy.js v0.10.2
+ * sammy.js v0.10.3
  * Open Source JavaScript Library
  * https://github.com/hackdanismo/sammy-js
  *
@@ -11,9 +11,11 @@
  */
 
 (function(window) {
+  "use strict";
+
   const sammyLibrary = {
     // Property that outputs the version of the library
-    version: "0.10.2",
+    version: "0.10.3",
 
     sammy(selector) {
       let elements = [];
