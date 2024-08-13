@@ -1,7 +1,7 @@
 (function(window) {
   const sammyLibrary = {
     // Property that outputs the version of the library
-    version: "0.7.0",
+    version: "0.8.0",
 
     sammy(selector) {
       let elements = [];
@@ -22,6 +22,7 @@
             toggleClass: () => this,
             addAttribute: () => this,
             removeAttribute: () => this,
+            css: () => this,
             on: () => this,
             html: () => this,
             text: () => this,
@@ -99,6 +100,19 @@
         removeAttribute: function(attributeName) {
           elements.forEach(function(element) {
             element.removeAttribute(attributeName);
+          });
+          // Allow method chaining
+          return this;
+        },
+
+        // Apply styles to all elements matched by the selector
+        css: function(property, value) {
+          if (typeof property === "string" && value === undefined) {
+            // Get the style for the first element
+            return elements[0] ? window.getComputedStyle(elements[0])[property] : undefined;
+          }
+          elements.forEach(function(element) {
+            element.style[property] = value;
           });
           // Allow method chaining
           return this;
