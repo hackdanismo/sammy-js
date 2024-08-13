@@ -1,7 +1,7 @@
 (function(window) {
   const sammyLibrary = {
     // Property that outputs the version of the library
-    version: "0.6.0",
+    version: "0.7.0",
 
     sammy(selector) {
       let elements = [];
@@ -27,6 +27,8 @@
             text: () => this,
             hide: () => this,
             show: () => this,
+            append: () => this,
+            prepend: () => this,
           };
         }
       } else if (selector instanceof Element) {
@@ -160,6 +162,32 @@
             // Check if the style attribute is empty after resetting the display value
             if (element.style.cssText.trim() === "") {
               element.removeAttribute("style");
+            }
+          });
+          // Allow method chaining
+          return this;
+        },
+
+        // Method to add elements or content at the beginning of a selected element
+        append: function(content) {
+          elements.forEach(function(element) {
+            if (typeof content === "string") {
+              element.insertAdjacentHTML("beforeend", content);
+            } else if (content instanceof Element) {
+              element.appendChild(content);
+            }
+          });
+          // Allow method chaining
+          return this;
+        },
+
+        // Method to add elements or content at the end of a selected element
+        prepend: function(content) {
+          elements.forEach(function(element) {
+            if (typeof content === "string") {
+              element.insertAdjacentHTML("afterbegin", content);
+            } else if (content instanceof Element) {
+              element.insertBefore(content, element.firstChild);
             }
           });
           // Allow method chaining

@@ -45,6 +45,8 @@ sammy.ready(function() {
   sammy(".hide-this-element").hide();
   sammy(".text-element").text("Hello World!!!");
   sammy(".html-element").html("<p>Test</p>");
+  sammy(".html-element").append("<div>This is an appended element</div>");
+  sammy(".text-element").prepend("<div>This is an prepended element</div>");
 });
 </script>
 </body>
