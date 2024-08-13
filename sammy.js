@@ -1,7 +1,7 @@
 (function(window) {
   const sammyLibrary = {
     // Property that outputs the version of the library
-    version: "0.3.0",
+    version: "0.4.0",
 
     sammy(selector) {
       let elements = [];
@@ -23,6 +23,8 @@
             addAttribute: () => this,
             removeAttribute: () => this,
             on: () => this,
+            hide: () => this,
+            show: () => this,
           };
         }
       } else if (selector instanceof Element) {
@@ -107,6 +109,24 @@
             element.addEventListener(eventType, function(event) {
               callback.call(element, event);
             });
+          });
+          // Allow method chaining
+          return this;
+        },
+
+        // Apply style attribute to set the display to be none to hide an element
+        hide: function() {
+          elements.forEach(function(element) {
+            element.style.display = "none";
+          });
+          // Allow method chaining
+          return this;
+        },
+
+        // Apply style attribute to set the display to be empty to show a hidden element
+        show: function() {
+          elements.forEach(function(element) {
+            element.style.display = "";
           });
           // Allow method chaining
           return this;
