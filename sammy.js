@@ -1,7 +1,19 @@
+/*
+ * sammy.js v0.10.2
+ * Open Source JavaScript Library
+ * https://github.com/hackdanismo/sammy-js
+ *
+ * Copyright Hackdanismo and any other contributors
+ * Released under the GPL-3.0 license
+ * https://github.com/hackdanismo/sammy-js?tab=GPL-3.0-1-ov-file
+ *
+ * Date: 2024-08-13
+ */
+
 (function(window) {
   const sammyLibrary = {
     // Property that outputs the version of the library
-    version: "0.10.1",
+    version: "0.10.2",
 
     sammy(selector) {
       let elements = [];
