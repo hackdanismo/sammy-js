@@ -4,7 +4,7 @@
   "description": "An open-source JavaScript library built as an alternative to jQuery.",
   "main": "sammy-0.10.3.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "minify": "terser sammy-0.10.3.js -o sammy-0.10.3.min.js"
   },
   "author": "Hackdanismo",
   "license": "GPL-3.0-only",
