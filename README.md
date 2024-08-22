@@ -234,7 +234,7 @@ sammy(".foo").on("click", function() {
 });
 ```
 
-### Append
+### Append
 Elements can added to the start of a parent element using the `append()` method.
 
 ```javascript
