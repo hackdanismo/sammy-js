@@ -15,7 +15,7 @@
 
   const sammyLibrary = {
     // Property that outputs the version of the library
-    version: "0.10.3",
+    version: "1.0.0",
 
     sammy(selector) {
       let elements = [];
