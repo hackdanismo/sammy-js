@@ -235,7 +235,7 @@ sammy(".foo").on("click", function() {
 ```
 
 ### Append
-Elements can added to the start of a parent element using the `append()` method.
+Elements can be added to the start of a parent element using the `append()` method.
 
 ```javascript
 sammy(".foo").append("<div>This is a new element added.</div>");
@@ -251,8 +251,8 @@ sammy(".foo").append("<div>This is a new element added.</div>");
 </div>
 ```
 
-### Prepend
-Elements can added to the end of a parent element using the `prepend()` method.
+### Prepend
+Elements can be added to the end of a parent element using the `prepend()` method.
 
 ```javascript
 sammy(".foo").prepend("<div>This is another new element added to the end.</div>");
