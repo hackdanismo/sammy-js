@@ -1,5 +1,5 @@
 /*
- * sammy.js v0.10.3
+ * sammy.js v1.0.0
  * Open Source JavaScript Library
  * https://github.com/hackdanismo/sammy-js
  *
@@ -7,7 +7,7 @@
  * Released under the GPL-3.0 license
  * https://github.com/hackdanismo/sammy-js?tab=GPL-3.0-1-ov-file
  *
- * Date: 2024-08-13
+ * Date: 2024-08-22
  */
 
 (function(window) {
