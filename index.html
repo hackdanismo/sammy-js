@@ -29,10 +29,14 @@
 
   <div class="removed-element">Removed Element</div>
 
+  <div class="toggle">Toggle</div>
+
 <script src="sammy-0.10.3.js"></script>
 <script>
 sammy.ready(function() {
   console.log(sammy.version);
+
+  sammy(".toggle").toggle();
 
   // Add a class to the test-element-one element
   sammy(".test-element-one").addClass("test-class");

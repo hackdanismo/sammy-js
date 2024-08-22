@@ -52,7 +52,7 @@ Create a second `JavaScript` file. This will contain the methods you wish to use
 </html>
 ```
 
-Inside the `index.js` file, we can add the code.
+Inside the `index.js` file, we can add the code:
 
 ```javascript
 sammy.ready(function() {
@@ -61,6 +61,16 @@ sammy.ready(function() {
 ```
 
 It is recommended to also minify this JavaScript file once ready to reduce the file size and improve performance.
+
+### Check Version
+A property within the library can be used to check the version of the library being used.
+
+```javascript
+sammy.version
+
+// Output log inside the console
+console.log(sammy.version);
+```
 
 ### Add a Class
 To add a `class` to an element using the `addClass()` method. In this example, the `bar` class is being added to the element with a class selector named `foo`.
@@ -87,6 +97,23 @@ sammy(".foo").removeClass("bar");
 ```
 
 If no classes remain, the `class` attribute will also be removed from the element.
+
+**The result:**
+
+```html
+<!-- Before -->
+<div class="foo bar"> ... </div>
+
+<!-- After -->
+<div class="foo"> ... </div>
+```
+
+### Toggle a Class
+To toggle a class on an element, the `toggleClass()` method can be used.
+
+```javascript
+sammy(".foo").toggleClass("bar");
+```
 
 **The result:**
 
@@ -130,6 +157,175 @@ sammy(".foo").removeAttribute("id");
 
 <!-- After -->
 <div class="foo"> ... </div>
+```
+
+### Adding Text
+The `text()` method can be used to add text to an element.
+
+```javascript
+sammy(".foo").text("Hello, World");
+```
+
+**The result:**
+
+```html
+<!-- Before -->
+<div class="foo"> ... </div>
+
+<!-- After -->
+<div class="foo">Hello, World</div>
+```
+
+### Adding HTML
+The `html()` method can be used to add `HTML` code to an element.
+
+```javascript
+sammy(".foo").text("<p>Paragraph added to the element.</p>");
+```
+
+**The result:**
+
+```html
+<!-- Before -->
+<div class="foo"> ... </div>
+
+<!-- After -->
+<div class="foo"><p>Paragraph added to the element.</p></div>
+```
+
+### Adding CSS
+Styling can be applied to an element using the `css()` method. The styling will be added to a `style` attribute.
+
+```javascript
+sammy(".foo").css("background-color", "blue").css("border", "1px solid black");
+```
+
+**The result:**
+
+```html
+<!-- Before -->
+<div class="foo"> ... </div>
+
+<!-- After -->
+<div class="foo" style="background-color: blue; border: 1px solid black;"> ... </div>
+```
+
+The `css()` method can also be used to return values.
+
+```javascript
+const backgroundColor = sammy(".foo").css("background-color");
+console.log(backgroundColor);
+```
+
+### Handle Events
+The `on()` method can be used to handle events, such as `click` events.
+
+```javascript
+sammy(".foo").on("click", function() {
+  alert("The Button was clicked!");
+});
+```
+
+This can be combined with other methods in the library as this example will demonstrate:
+
+```javascript
+sammy(".foo").on("click", function() {
+  sammy(".bar").toggleClass("active");
+});
+```
+
+### Append
+Elements can added to the start of a parent element using the `append()` method.
+
+```javascript
+sammy(".foo").append("<div>This is a new element added.</div>");
+```
+
+```html
+<!-- Before -->
+<div class="foo"> ... </div>
+
+<!-- After -->
+<div class="foo">
+  <div>This is a new element added.</div>
+</div>
+```
+
+### Prepend
+Elements can added to the end of a parent element using the `prepend()` method.
+
+```javascript
+sammy(".foo").prepend("<div>This is another new element added to the end.</div>");
+```
+
+```html
+<!-- Before -->
+<div class="foo">
+  <div>This is a new element added.</div>
+</div>
+
+<!-- After -->
+<div class="foo">
+  <div>This is a new element added.</div>
+  <div>This is another new element added to the end.</div>
+</div>
+```
+
+### Hide
+Use the `hide()` method to hide the element. This applies the `style` attribute to the element.
+
+```javascript
+sammy(".foo").hide();
+```
+
+**The result:**
+
+```html
+<!-- Before -->
+<div class="foo"> ... </div>
+
+<!-- After -->
+<div class="foo" style="display: none;"> ... </div>
+```
+
+### Show
+Use the `show()` method to show the element to be visible. This remove the `style` attribute from the element.
+
+```javascript
+sammy(".foo").show();
+```
+
+**The result:**
+
+```html
+<!-- Before -->
+<div class="foo" style="display: none;"> ... </div>
+
+<!-- After -->
+<div class="foo"> ... </div>
+```
+
+### Toggle
+The `toggle()` method is used to toggle between `show` and `hide`.
+
+```javascript
+sammy(".foo").toggle();
+```
+
+```html
+<!-- Before -->
+<div class="foo"> ... </div>
+
+<!-- After -->
+<div class="foo" style="display: none;"> ... </div>
+```
+
+This method is useful when hiding and showing elements on a button click. The element with the class of `bar` will be hidden or shown each time the button is clicked.
+
+```javascript
+sammy(".foo").on("click", function() {
+  sammy(".bar").toggle();
+});
 ```
 
 ### Remove an Element
