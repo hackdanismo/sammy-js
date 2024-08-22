@@ -3,6 +3,9 @@
   "version": "0.10.3",
   "description": "An open-source JavaScript library built as an alternative to jQuery.",
   "main": "sammy-0.10.3.js",
+  "engines": {
+    "node": ">=20.17.0"
+  },
   "scripts": {
     "minify": "terser sammy-0.10.3.js -o sammy-0.10.3.min.js"
   },
