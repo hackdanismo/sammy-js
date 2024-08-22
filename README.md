@@ -1,6 +1,24 @@
 # sammy.js
 An open-source JavaScript library built as an alternative to jQuery.
 
+## Using the Library
+The library is available as an `unminfied` and as a `minified` JavaScript file. `GitHub Pages` has been activated on this repository, so both versions of the JavaScript file are available for use in a project.
+
++ `Unminified`: `sammy-1.0.0.js`
++ `Minified`: `sammy-1.0.0.min.js`
+
+The library can be added using a `<script>` tag in the `HTML`:
+
+```html
+<!-- Minified (Recommended) -->
+<script src="https://hackdanismo.github.io/sammy-js/sammy-1.0.0.min.js"></script>
+
+<!-- Unminified -->
+<script src="https://hackdanismo.github.io/sammy-js/sammy-1.0.0.js"></script>
+```
+
+Update the version number (if required) to set the version of the library to be used.
+
 ## Development
 The development steps are documented below.
 
@@ -33,12 +51,12 @@ The documentation to use the `sammy.js` library in a project. For the examples, 
 ```
 
 ### Initial Setup
-Begin by downloading the unminified `sammy-0.10.3.js` or minified `sammy-0.10.3.min.js` files. It is recommended to use the minified file as this will improve performance due to the reduced file size.
+Begin by downloading the unminified `sammy-1.0.0.js` or minified `sammy-1.0.0.min.js` files. It is recommended to use the minified file as this will improve performance due to the reduced file size.
 
 Setup your HTML file with the `<script>` before the closing `</body>` tag.
 
 ```html
-<script src="scripts/sammy-0.10.3.min.js"></script>
+<script src="scripts/sammy-1.0.0.min.js"></script>
 </body>
 </html>
 ```
@@ -46,7 +64,7 @@ Setup your HTML file with the `<script>` before the closing `</body>` tag.
 Create a second `JavaScript` file. This will contain the methods you wish to use within your project. In this example, the file is named `index.js`.
 
 ```html
-<script src="scripts/sammy-0.10.3.min.js"></script>
+<script src="scripts/sammy-1.0.0.min.js"></script>
 <script src="scripts/index.js"></script>
 </body>
 </html>
