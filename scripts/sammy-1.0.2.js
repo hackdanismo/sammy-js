@@ -86,11 +86,12 @@
           return methods;
         },
 
+        /*
         // Toggle classes on elements, this can be chained to the other methods in the library
         toggleClass: function(className) {
           elements.forEach((element) => {
             if (element.classList.contains(className)) {
-              element.classList.remove(className);
+              element.classList.remove(className);*/
 
               /*
               // Check if the element has any classes remaining
@@ -99,6 +100,7 @@
                 element.removeAttribute("class");
               }
               */
+             /*
               if (!element.classList.length) {
                 element.removeAttribute("class");
               }
@@ -107,6 +109,18 @@
             }
           });
           // Allow method chaining
+          return methods;
+        },
+        */
+
+        toggleClass: function(className) {
+          elements.forEach((element) => {
+            element.classList.toggle(className);
+
+            if (!element.classList.length) {
+              element.removeAttribute("class");
+            }
+          });
           return methods;
         },
 
