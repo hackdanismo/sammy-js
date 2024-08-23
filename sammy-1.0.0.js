@@ -15,7 +15,7 @@
 
   const sammyLibrary = {
     // Property that outputs the version of the library
-    version: "1.0.0",
+    version: "1.0.1",
 
     sammy(selector) {
       let elements = [];
@@ -59,7 +59,7 @@
       const methods = {
         // Add a class to an element in the DOM
         addClass: function(className) {
-          elements.forEach(function(element) {
+          elements.forEach((element) => {
             element.classList.add(className);
           });
           // Allow method chaining
@@ -68,7 +68,7 @@
 
         // Remove a class from an element and the class attribute if no classes remain
         removeClass: function(className) {
-          elements.forEach(function(element) {
+          elements.forEach((element) => {
             element.classList.remove(className);
             // Check if the element has any classes remaining
             if (element.classList.length === 0) {
@@ -82,7 +82,7 @@
 
         // Toggle classes on elements, this can be chained to the other methods in the library
         toggleClass: function(className) {
-          elements.forEach(function(element) {
+          elements.forEach((element) => {
             if (element.classList.contains(className)) {
               element.classList.remove(className);
 
@@ -101,7 +101,7 @@
 
         // Toggle the visibility of elements, switching between show and hide
         toggle: function() {
-          elements.forEach(function(element) {
+          elements.forEach((element) => {
             if (window.getComputedStyle(element).display === "none") {
               element.style.display = "";
             } else {
@@ -122,7 +122,7 @@
           if (attributeName === undefined || attributeValue === undefined || attributeName === null || attributeValue === null) {
             throw new Error("Both attribute name and value must be provided and cannot be null.");
           }
-          elements.forEach(function(element) {
+          elements.forEach((element) => {
             element.setAttribute(attributeName, attributeValue);
           });
           // Allow method chaining
@@ -131,7 +131,7 @@
 
         // Remove an attribute from an element
         removeAttribute: function(attributeName) {
-          elements.forEach(function(element) {
+          elements.forEach((element) => {
             element.removeAttribute(attributeName);
           });
           // Allow method chaining
@@ -144,7 +144,7 @@
             // Get the style for the first element
             return elements[0] ? window.getComputedStyle(elements[0])[property] : undefined;
           }
-          elements.forEach(function(element) {
+          elements.forEach((element) => {
             element.style[property] = value;
           });
           // Allow method chaining
@@ -156,7 +156,7 @@
           if (typeof eventType !== "string" || typeof callback !== "function") {
             throw new Error("Event type must be a string and callback must be a function.");
           }
-          elements.forEach(function(element) {
+          elements.forEach((element) => {
             element.addEventListener(eventType, function(event) {
               callback.call(element, event);
             });
@@ -171,7 +171,7 @@
             // Return the HTML content of the first element
             return elements[0] ? elements[0].innerHTML : undefined;
           }
-          elements.forEach(function(element) {
+          elements.forEach((element) => {
             element.innerHTML = htmlContent;
           });
           // Allow method chaining
@@ -184,7 +184,7 @@
             // Return the text content of the first element
             return elements[0] ? elements[0].textContent : undefined;
           }
-          elements.forEach(function(element) {
+          elements.forEach((element) => {
             element.textContent = textContent;
           });
           // Allow method chaining
@@ -193,7 +193,7 @@
 
         // Apply style attribute to set the display to be none to hide an element
         hide: function() {
-          elements.forEach(function(element) {
+          elements.forEach((element) => {
             element.style.display = "none";
           });
           // Allow method chaining
@@ -202,7 +202,7 @@
 
         // Apply style attribute to set the display to be empty to show a hidden element
         show: function() {
-          elements.forEach(function(element) {
+          elements.forEach((element) => {
             // Reset to the default display value
             element.style.display = "";
 
@@ -217,7 +217,7 @@
 
         // Method to add elements or content at the beginning of a selected element
         append: function(content) {
-          elements.forEach(function(element) {
+          elements.forEach((element) => {
             if (typeof content === "string") {
               element.insertAdjacentHTML("beforeend", content);
             } else if (content instanceof Element) {
@@ -230,7 +230,7 @@
 
         // Method to add elements or content at the end of a selected element
         prepend: function(content) {
-          elements.forEach(function(element) {
+          elements.forEach((element) => {
             if (typeof content === "string") {
               element.insertAdjacentHTML("afterbegin", content);
             } else if (content instanceof Element) {
@@ -243,7 +243,7 @@
 
         // Remove select elements from the DOM
         remove: function() {
-          elements.forEach(function(element) {
+          elements.forEach((element) => {
             element.remove();
           });
           // Allow method chaining
