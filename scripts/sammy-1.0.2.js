@@ -60,7 +60,9 @@
         // Add a class to an element in the DOM
         addClass: function(className) {
           elements.forEach((element) => {
-            element.classList.add(className);
+           // Cache the classList object
+           const classList = element.classList;
+            classList.add(className);
           });
           // Allow method chaining
           return methods;
@@ -69,7 +71,9 @@
         // Remove a class from an element and the class attribute if no classes remain
         removeClass: function(className) {
           elements.forEach((element) => {
-            element.classList.remove(className);
+            // Cache the classList object
+            const classList = element.classList;
+            classList.remove(className);
             /*
             // Check if the element has any classes remaining
             if (element.classList.length === 0) {
@@ -78,7 +82,7 @@
             }
             */
             // Only remove the class attribute if it's empty after removal
-            if (!element.classList.length) {
+            if (!classList.length) {
               element.removeAttribute("class");
             }
           });
@@ -115,9 +119,11 @@
 
         toggleClass: function(className) {
           elements.forEach((element) => {
-            element.classList.toggle(className);
+            // Cache the classList object
+            const classList = element.classList;
+            classList.toggle(className);
 
-            if (!element.classList.length) {
+            if (!classList.length) {
               element.removeAttribute("class");
             }
           });
