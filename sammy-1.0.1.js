@@ -1,5 +1,5 @@
 /*
- * sammy.js v1.0.0
+ * sammy.js v1.0.1
  * Open Source JavaScript Library
  * https://github.com/hackdanismo/sammy-js
  *

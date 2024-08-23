@@ -2,12 +2,12 @@
   "name": "sammy.js",
   "version": "1.0.0",
   "description": "An open-source JavaScript library built as an alternative to jQuery.",
-  "main": "sammy-1.0.0.js",
+  "main": "sammy-1.0.1.js",
   "engines": {
     "node": ">=20.17.0"
   },
   "scripts": {
-    "minify": "terser sammy-1.0.0.js -o sammy-1.0.0.min.js"
+    "minify": "terser sammy-1.0.1.js -o sammy-1.0.1.min.js"
   },
   "author": "Hackdanismo",
   "license": "GPL-3.0-only",
