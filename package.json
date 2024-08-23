@@ -1,6 +1,6 @@
 {
   "name": "sammy.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An open-source JavaScript library built as an alternative to jQuery.",
   "main": "sammy-1.0.1.js",
   "engines": {
