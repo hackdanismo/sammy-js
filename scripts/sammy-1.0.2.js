@@ -18,7 +18,7 @@
     version: "1.0.2",
 
     sammy(selector) {
-      let elements = [];
+      const elements = [];
 
       // Functionality to handle both CSS selectors as strings and individual DOM elements
       if (typeof selector === "string") {
