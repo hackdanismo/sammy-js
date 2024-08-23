@@ -92,9 +92,14 @@
             if (element.classList.contains(className)) {
               element.classList.remove(className);
 
+              /*
               // Check if the element has any classes remaining
               if (element.classList.length === 0) {
                 // If no classes remain on the element, remove the class attribute from the element
+                element.removeAttribute("class");
+              }
+              */
+              if (!element.classList.length) {
                 element.removeAttribute("class");
               }
             } else {
