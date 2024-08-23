@@ -11,10 +11,10 @@ The library can be added using a `<script>` tag in the `HTML`:
 
 ```html
 <!-- Minified (Recommended) -->
-<script src="https://hackdanismo.github.io/sammy-js/sammy-1.0.2.min.js"></script>
+<script src="https://hackdanismo.github.io/sammy-js/scripts/sammy-1.0.2.min.js"></script>
 
 <!-- Unminified -->
-<script src="https://hackdanismo.github.io/sammy-js/sammy-1.0.2.js"></script>
+<script src="https://hackdanismo.github.io/sammy-js/scripts/sammy-1.0.2.js"></script>
 ```
 
 Update the version number (if required) to set the version of the library to be used.

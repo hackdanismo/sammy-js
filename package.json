@@ -7,7 +7,7 @@
     "node": ">=20.17.0"
   },
   "scripts": {
-    "minify": "terser sammy-1.0.2.js -o sammy-1.0.2.min.js"
+    "minify": "terser scripts/sammy-1.0.2.js -o scripts/sammy-1.0.2.min.js"
   },
   "author": "Hackdanismo",
   "license": "GPL-3.0-only",
