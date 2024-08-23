@@ -215,30 +215,31 @@
           return this;
         },
 
-        // Method to add elements or content at the beginning of a selected element
-        append: function(content) {
+        // Helper method to handle both append and prepend
+        _manipulateContent: function(content, position) {
           elements.forEach((element) => {
             if (typeof content === "string") {
-              element.insertAdjacentHTML("beforeend", content);
+              element.insertAdjacentHTML(position, content);
             } else if (content instanceof Element) {
-              element.appendChild(content);
+              if (position === "beforeend") {
+                element.appendChild(content);
+              } else if (position === "afterbegin") {
+                element.insertBefore(content, element.firstChild);
+              }
             }
           });
           // Allow method chaining
           return this;
         },
 
+        // Method to add elements or content at the beginning of a selected element
+        append: function(content) {
+          return this._manipulateContent(content, "beforeend");
+        },
+
         // Method to add elements or content at the end of a selected element
         prepend: function(content) {
-          elements.forEach((element) => {
-            if (typeof content === "string") {
-              element.insertAdjacentHTML("afterbegin", content);
-            } else if (content instanceof Element) {
-              element.insertBefore(content, element.firstChild);
-            }
-          });
-          // Allow method chaining
-          return this;
+          return this._manipulateContent(content, "afterbegin");
         },
 
         // Remove select elements from the DOM
