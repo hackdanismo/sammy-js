@@ -7,7 +7,7 @@
  * Released under the GPL-3.0 license
  * https://github.com/hackdanismo/sammy-js?tab=GPL-3.0-1-ov-file
  *
- * Date: 2024-08-22
+ * Date: 2024-08-23
  */
 
 ((window, document) => {
