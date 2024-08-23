@@ -63,7 +63,7 @@
             element.classList.add(className);
           });
           // Allow method chaining
-          return this;
+          return methods;
         },
 
         // Remove a class from an element and the class attribute if no classes remain
@@ -77,7 +77,7 @@
             }
           });
           // Allow method chaining
-          return this;
+          return methods;
         },
 
         // Toggle classes on elements, this can be chained to the other methods in the library
@@ -96,7 +96,7 @@
             }
           });
           // Allow method chaining
-          return this;
+          return methods;
         },
 
         // Toggle the visibility of elements, switching between show and hide
@@ -113,7 +113,7 @@
             }
           });
           // Allow method chaining
-          return this;
+          return methods;
         },
 
         // Add an attribute to an element. This requires a name and a value
@@ -126,7 +126,7 @@
             element.setAttribute(attributeName, attributeValue);
           });
           // Allow method chaining
-          return this;
+          return methods;
         },
 
         // Remove an attribute from an element
@@ -135,7 +135,7 @@
             element.removeAttribute(attributeName);
           });
           // Allow method chaining
-          return this;
+          return methods;
         },
 
         // Apply styles to all elements matched by the selector
@@ -148,7 +148,7 @@
             element.style[property] = value;
           });
           // Allow method chaining
-          return this;
+          return methods;
         },
 
         // Add an event listener to elements
@@ -162,7 +162,7 @@
             });
           });
           // Allow method chaining
-          return this;
+          return methods;
         },
 
         // Get or set the inner HTML of an element to allow manipulation of its content
@@ -175,7 +175,7 @@
             element.innerHTML = htmlContent;
           });
           // Allow method chaining
-          return this;
+          return methods;
         },
 
         // Get or set the text content of an element and working with text nodes
@@ -188,7 +188,7 @@
             element.textContent = textContent;
           });
           // Allow method chaining
-          return this;
+          return methods;
         },
 
         // Apply style attribute to set the display to be none to hide an element
@@ -197,7 +197,7 @@
             element.style.display = "none";
           });
           // Allow method chaining
-          return this;
+          return methods;
         },
 
         // Apply style attribute to set the display to be empty to show a hidden element
@@ -212,7 +212,7 @@
             }
           });
           // Allow method chaining
-          return this;
+          return methods;
         },
 
         // Helper method to handle both append and prepend
@@ -229,17 +229,17 @@
             }
           });
           // Allow method chaining
-          return this;
+          return methods;
         },
 
         // Method to add elements or content at the beginning of a selected element
         append: function(content) {
-          return this._manipulateContent(content, "beforeend");
+          return methods._manipulateContent(content, "beforeend");
         },
 
         // Method to add elements or content at the end of a selected element
         prepend: function(content) {
-          return this._manipulateContent(content, "afterbegin");
+          return methods._manipulateContent(content, "afterbegin");
         },
 
         // Remove select elements from the DOM
@@ -248,7 +248,7 @@
             element.remove();
           });
           // Allow method chaining
-          return this;
+          return methods;
         }
       };
       
