@@ -1,5 +1,5 @@
 /*
- * sammy.js v1.0.0
+ * sammy.js v1.0.1
  * Open Source JavaScript Library
  * https://github.com/hackdanismo/sammy-js
  *
@@ -10,12 +10,12 @@
  * Date: 2024-08-22
  */
 
-(function(window) {
+((window, document) => {
   "use strict";
 
   const sammyLibrary = {
     // Property that outputs the version of the library
-    version: "1.0.0",
+    version: "1.0.1",
 
     sammy(selector) {
       let elements = [];
@@ -59,16 +59,16 @@
       const methods = {
         // Add a class to an element in the DOM
         addClass: function(className) {
-          elements.forEach(function(element) {
+          elements.forEach((element) => {
             element.classList.add(className);
           });
           // Allow method chaining
-          return this;
+          return methods;
         },
 
         // Remove a class from an element and the class attribute if no classes remain
         removeClass: function(className) {
-          elements.forEach(function(element) {
+          elements.forEach((element) => {
             element.classList.remove(className);
             // Check if the element has any classes remaining
             if (element.classList.length === 0) {
@@ -77,12 +77,12 @@
             }
           });
           // Allow method chaining
-          return this;
+          return methods;
         },
 
         // Toggle classes on elements, this can be chained to the other methods in the library
         toggleClass: function(className) {
-          elements.forEach(function(element) {
+          elements.forEach((element) => {
             if (element.classList.contains(className)) {
               element.classList.remove(className);
 
@@ -96,12 +96,12 @@
             }
           });
           // Allow method chaining
-          return this;
+          return methods;
         },
 
         // Toggle the visibility of elements, switching between show and hide
         toggle: function() {
-          elements.forEach(function(element) {
+          elements.forEach((element) => {
             if (window.getComputedStyle(element).display === "none") {
               element.style.display = "";
             } else {
@@ -113,7 +113,7 @@
             }
           });
           // Allow method chaining
-          return this;
+          return methods;
         },
 
         // Add an attribute to an element. This requires a name and a value
@@ -122,20 +122,20 @@
           if (attributeName === undefined || attributeValue === undefined || attributeName === null || attributeValue === null) {
             throw new Error("Both attribute name and value must be provided and cannot be null.");
           }
-          elements.forEach(function(element) {
+          elements.forEach((element) => {
             element.setAttribute(attributeName, attributeValue);
           });
           // Allow method chaining
-          return this;
+          return methods;
         },
 
         // Remove an attribute from an element
         removeAttribute: function(attributeName) {
-          elements.forEach(function(element) {
+          elements.forEach((element) => {
             element.removeAttribute(attributeName);
           });
           // Allow method chaining
-          return this;
+          return methods;
         },
 
         // Apply styles to all elements matched by the selector
@@ -144,11 +144,11 @@
             // Get the style for the first element
             return elements[0] ? window.getComputedStyle(elements[0])[property] : undefined;
           }
-          elements.forEach(function(element) {
+          elements.forEach((element) => {
             element.style[property] = value;
           });
           // Allow method chaining
-          return this;
+          return methods;
         },
 
         // Add an event listener to elements
@@ -156,13 +156,13 @@
           if (typeof eventType !== "string" || typeof callback !== "function") {
             throw new Error("Event type must be a string and callback must be a function.");
           }
-          elements.forEach(function(element) {
+          elements.forEach((element) => {
             element.addEventListener(eventType, function(event) {
               callback.call(element, event);
             });
           });
           // Allow method chaining
-          return this;
+          return methods;
         },
 
         // Get or set the inner HTML of an element to allow manipulation of its content
@@ -171,11 +171,11 @@
             // Return the HTML content of the first element
             return elements[0] ? elements[0].innerHTML : undefined;
           }
-          elements.forEach(function(element) {
+          elements.forEach((element) => {
             element.innerHTML = htmlContent;
           });
           // Allow method chaining
-          return this;
+          return methods;
         },
 
         // Get or set the text content of an element and working with text nodes
@@ -184,25 +184,25 @@
             // Return the text content of the first element
             return elements[0] ? elements[0].textContent : undefined;
           }
-          elements.forEach(function(element) {
+          elements.forEach((element) => {
             element.textContent = textContent;
           });
           // Allow method chaining
-          return this;
+          return methods;
         },
 
         // Apply style attribute to set the display to be none to hide an element
         hide: function() {
-          elements.forEach(function(element) {
+          elements.forEach((element) => {
             element.style.display = "none";
           });
           // Allow method chaining
-          return this;
+          return methods;
         },
 
         // Apply style attribute to set the display to be empty to show a hidden element
         show: function() {
-          elements.forEach(function(element) {
+          elements.forEach((element) => {
             // Reset to the default display value
             element.style.display = "";
 
@@ -212,42 +212,43 @@
             }
           });
           // Allow method chaining
-          return this;
+          return methods;
+        },
+
+        // Helper method to handle both append and prepend
+        _manipulateContent: function(content, position) {
+          elements.forEach((element) => {
+            if (typeof content === "string") {
+              element.insertAdjacentHTML(position, content);
+            } else if (content instanceof Element) {
+              if (position === "beforeend") {
+                element.appendChild(content);
+              } else if (position === "afterbegin") {
+                element.insertBefore(content, element.firstChild);
+              }
+            }
+          });
+          // Allow method chaining
+          return methods;
         },
 
         // Method to add elements or content at the beginning of a selected element
         append: function(content) {
-          elements.forEach(function(element) {
-            if (typeof content === "string") {
-              element.insertAdjacentHTML("beforeend", content);
-            } else if (content instanceof Element) {
-              element.appendChild(content);
-            }
-          });
-          // Allow method chaining
-          return this;
+          return methods._manipulateContent(content, "beforeend");
         },
 
         // Method to add elements or content at the end of a selected element
         prepend: function(content) {
-          elements.forEach(function(element) {
-            if (typeof content === "string") {
-              element.insertAdjacentHTML("afterbegin", content);
-            } else if (content instanceof Element) {
-              element.insertBefore(content, element.firstChild);
-            }
-          });
-          // Allow method chaining
-          return this;
+          return methods._manipulateContent(content, "afterbegin");
         },
 
         // Remove select elements from the DOM
         remove: function() {
-          elements.forEach(function(element) {
+          elements.forEach((element) => {
             element.remove();
           });
           // Allow method chaining
-          return this;
+          return methods;
         }
       };
       
@@ -269,4 +270,4 @@
   window.sammy.ready = sammyLibrary.ready;
   // Expose the version number property globally
   window.sammy.version = sammyLibrary.version;
-})(window);
+})(window, document);

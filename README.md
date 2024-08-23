@@ -4,17 +4,17 @@ An open-source JavaScript library built as an alternative to jQuery.
 ## Using the Library
 The library is available as an `unminfied` and as a `minified` JavaScript file. `GitHub Pages` has been activated on this repository, so both versions of the JavaScript file are available for use in a project.
 
-+ `Unminified`: `sammy-1.0.0.js`
-+ `Minified`: `sammy-1.0.0.min.js`
++ `Unminified`: `sammy-1.0.1.js`
++ `Minified`: `sammy-1.0.1.min.js`
 
 The library can be added using a `<script>` tag in the `HTML`:
 
 ```html
 <!-- Minified (Recommended) -->
-<script src="https://hackdanismo.github.io/sammy-js/sammy-1.0.0.min.js"></script>
+<script src="https://hackdanismo.github.io/sammy-js/sammy-1.0.1.min.js"></script>
 
 <!-- Unminified -->
-<script src="https://hackdanismo.github.io/sammy-js/sammy-1.0.0.js"></script>
+<script src="https://hackdanismo.github.io/sammy-js/sammy-1.0.1.js"></script>
 ```
 
 Update the version number (if required) to set the version of the library to be used.
@@ -252,25 +252,8 @@ sammy(".foo").on("click", function() {
 });
 ```
 
-### Append
-Elements can be added to the start of a parent element using the `append()` method.
-
-```javascript
-sammy(".foo").append("<div>This is a new element added.</div>");
-```
-
-```html
-<!-- Before -->
-<div class="foo"> ... </div>
-
-<!-- After -->
-<div class="foo">
-  <div>This is a new element added.</div>
-</div>
-```
-
 ### Prepend
-Elements can be added to the end of a parent element using the `prepend()` method.
+Elements can be added to the `start` of a parent element using the `prepend()` method.
 
 ```javascript
 sammy(".foo").prepend("<div>This is another new element added to the end.</div>");
@@ -286,6 +269,23 @@ sammy(".foo").prepend("<div>This is another new element added to the end.</div>"
 <div class="foo">
   <div>This is a new element added.</div>
   <div>This is another new element added to the end.</div>
+</div>
+```
+
+### Append
+Elements can be added to the `end` of a parent element using the `append()` method.
+
+```javascript
+sammy(".foo").append("<div>This is a new element added.</div>");
+```
+
+```html
+<!-- Before -->
+<div class="foo"> ... </div>
+
+<!-- After -->
+<div class="foo">
+  <div>This is a new element added.</div>
 </div>
 ```
 
