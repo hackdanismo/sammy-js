@@ -10,7 +10,7 @@
  * Date: 2024-08-22
  */
 
-(function(window, document) {
+((window, document) => {
   "use strict";
 
   const sammyLibrary = {
