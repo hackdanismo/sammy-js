@@ -70,9 +70,15 @@
         removeClass: function(className) {
           elements.forEach((element) => {
             element.classList.remove(className);
+            /*
             // Check if the element has any classes remaining
             if (element.classList.length === 0) {
               // If no classes remain, remove the class attribute from the element also
+              element.removeAttribute("class");
+            }
+            */
+            // Only remove the class attribute if it's empty after removal
+            if (!element.classList.length) {
               element.removeAttribute("class");
             }
           });
