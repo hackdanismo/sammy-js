@@ -4,17 +4,17 @@ An open-source JavaScript library built as an alternative to jQuery.
 ## Using the Library
 The library is available as an `unminfied` and as a `minified` JavaScript file. `GitHub Pages` has been activated on this repository, so both versions of the JavaScript file are available for use in a project.
 
-+ `Unminified`: `sammy-1.0.1.js`
-+ `Minified`: `sammy-1.0.1.min.js`
++ `Unminified`: `sammy-1.0.2.js`
++ `Minified`: `sammy-1.0.2.min.js`
 
 The library can be added using a `<script>` tag in the `HTML`:
 
 ```html
 <!-- Minified (Recommended) -->
-<script src="https://hackdanismo.github.io/sammy-js/sammy-1.0.1.min.js"></script>
+<script src="https://hackdanismo.github.io/sammy-js/sammy-1.0.2.min.js"></script>
 
 <!-- Unminified -->
-<script src="https://hackdanismo.github.io/sammy-js/sammy-1.0.1.js"></script>
+<script src="https://hackdanismo.github.io/sammy-js/sammy-1.0.2.js"></script>
 ```
 
 Update the version number (if required) to set the version of the library to be used.
