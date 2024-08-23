@@ -10,7 +10,7 @@
  * Date: 2024-08-22
  */
 
-(function(window) {
+(function(window, document) {
   "use strict";
 
   const sammyLibrary = {
@@ -269,4 +269,4 @@
   window.sammy.ready = sammyLibrary.ready;
   // Expose the version number property globally
   window.sammy.version = sammyLibrary.version;
-})(window);
+})(window, document);
