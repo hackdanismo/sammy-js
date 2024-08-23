@@ -74,13 +74,6 @@
             // Cache the classList object
             const classList = element.classList;
             classList.remove(className);
-            /*
-            // Check if the element has any classes remaining
-            if (element.classList.length === 0) {
-              // If no classes remain, remove the class attribute from the element also
-              element.removeAttribute("class");
-            }
-            */
             // Only remove the class attribute if it's empty after removal
             if (!classList.length) {
               element.removeAttribute("class");
@@ -89,33 +82,6 @@
           // Allow method chaining
           return methods;
         },
-
-        /*
-        // Toggle classes on elements, this can be chained to the other methods in the library
-        toggleClass: function(className) {
-          elements.forEach((element) => {
-            if (element.classList.contains(className)) {
-              element.classList.remove(className);*/
-
-              /*
-              // Check if the element has any classes remaining
-              if (element.classList.length === 0) {
-                // If no classes remain on the element, remove the class attribute from the element
-                element.removeAttribute("class");
-              }
-              */
-             /*
-              if (!element.classList.length) {
-                element.removeAttribute("class");
-              }
-            } else {
-              element.classList.add(className);
-            }
-          });
-          // Allow method chaining
-          return methods;
-        },
-        */
 
         toggleClass: function(className) {
           elements.forEach((element) => {
