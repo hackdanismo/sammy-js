@@ -1,0 +1,8 @@
+.container {
+  margin: 0 auto;
+  /* Apply left and right padding to provide spacing on smaller screens when responsive */
+  padding: 0 16px;
+  padding: 0 1rem;
+  /* Ensure the maximum width of the content to avoid continually increasing on larger screens */
+  max-width: 1200px;
+}
