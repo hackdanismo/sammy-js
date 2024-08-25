@@ -1,0 +1,97 @@
+*, *::before, *::after {
+  /* Use an intuitive box-sizing model */
+  box-sizing: border-box;
+  /* Remove margin from all elements by default */
+  margin: 0;
+  /* Remove padding from all elements by default */
+  padding: 0;  
+}
+
+html {
+  /* Enable consistent scroll behaviour across different browsers */
+  scroll-behaviour: smooth;
+  /* Prevent font-size inflation */
+  -moz-text-size-adjust: none;
+  /* Prevent adjustments of font-size after an orientation change in iOS */
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+body {
+  /* Set the root font-size as a default */
+  font-size: 16px;
+  /* The font-size will be set to use rem units with a px fallback for legacy browsers, if rem is not supported */
+  font-size: 1rem;
+  /* Set the default line-height for better readability and improved accessibility */
+  line-height: 1.5;
+  /* Controls the rendering of fonts on-screen, with specific focus on Webkit browsers such as Safari */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Ensure a consistent display for newer HTML5 elements across all browsers */
+article, aside, details, figcaption, figure, footer,
+header, hgroup, main, menu, nav, section, img, picture,
+video, canvas, svg, iframe, embed, object {
+  display: block;
+}
+
+img, picture, video, canvas, svg, iframe, embed, object {
+  /* Allow the element to scale down if needed but to not scale up to be larger than its original size */
+  max-width: 100%;
+}
+
+img, iframe, object {
+  height: auto;
+  border: 0;
+}
+
+img {
+  /* Remove the border on images used inside links which is usually an IE10 issue */
+  border-style: none;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  /* Avoid text overflows */
+  overflow-wrap: break-word;
+}
+
+a {
+  /* Remove the grey background on active links in old versions of IE including IE10 */
+  background-color: transparent;
+}
+
+strong, b {
+  /* Set the correct font-weight for Chrome, Edge and Safari browsers */
+  font-weight: bolder;
+}
+
+small {
+  /* Set the correct font-size for all browsers */
+  font-size: 80%;
+}
+
+input, button, textarea, optgroup, select, a {
+  /* Remove built-in typography styles from inside of a form */
+  font: inherit;
+}
+
+button, input {
+  /* Remove the overflow when used in IE and Edge browsers */
+  overflow: visible;
+}
+
+button,
+[type="button"],
+[type="submit"],
+[type="reset"] {
+  display: inline-block;
+  /* Correct the inability to style clickable types in the iOS and Safari browser */
+  -webkit-appearance: button;
+  appearance: button;
+}
+
+code, kbd, samp, pre {
+  font-family: monospace, monospace;
+  font-size: 16px;
+  font-size: 1rem;
+}
