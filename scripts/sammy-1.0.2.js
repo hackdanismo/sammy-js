@@ -18,7 +18,7 @@
     version: "1.0.2",
 
     sammy(selector) {
-      const elements = [];
+      let elements = [];
 
       // Functionality to handle both CSS selectors as strings and individual DOM elements
       if (typeof selector === "string") {
@@ -74,7 +74,7 @@
             // Cache the classList object
             const classList = element.classList;
             classList.remove(className);
-            // Only remove the class attribute if it's empty after removal
+            // Remove the attribute if no other values are found
             if (!classList.length) {
               element.removeAttribute("class");
             }
@@ -89,6 +89,7 @@
             const classList = element.classList;
             classList.toggle(className);
 
+            // Remove the attribute if no other values are found
             if (!classList.length) {
               element.removeAttribute("class");
             }
