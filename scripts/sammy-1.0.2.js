@@ -1,5 +1,5 @@
 /*
- * sammy.js v1.0.1
+ * sammy.js v1.0.2
  * Open Source JavaScript Library
  * https://github.com/hackdanismo/sammy-js
  *
@@ -7,7 +7,7 @@
  * Released under the GPL-3.0 license
  * https://github.com/hackdanismo/sammy-js?tab=GPL-3.0-1-ov-file
  *
- * Date: 2024-08-23
+ * Date: 2024-08-25
  */
 
 ((window, document) => {
@@ -15,7 +15,7 @@
 
   const sammyLibrary = {
     // Property that outputs the version of the library
-    version: "1.0.1",
+    version: "1.0.2",
 
     sammy(selector) {
       let elements = [];
@@ -60,7 +60,9 @@
         // Add a class to an element in the DOM
         addClass: function(className) {
           elements.forEach((element) => {
-            element.classList.add(className);
+           // Cache the classList object
+           const classList = element.classList;
+            classList.add(className);
           });
           // Allow method chaining
           return methods;
@@ -69,10 +71,11 @@
         // Remove a class from an element and the class attribute if no classes remain
         removeClass: function(className) {
           elements.forEach((element) => {
-            element.classList.remove(className);
-            // Check if the element has any classes remaining
-            if (element.classList.length === 0) {
-              // If no classes remain, remove the class attribute from the element also
+            // Cache the classList object
+            const classList = element.classList;
+            classList.remove(className);
+            // Remove the attribute if no other values are found
+            if (!classList.length) {
               element.removeAttribute("class");
             }
           });
@@ -80,22 +83,17 @@
           return methods;
         },
 
-        // Toggle classes on elements, this can be chained to the other methods in the library
         toggleClass: function(className) {
           elements.forEach((element) => {
-            if (element.classList.contains(className)) {
-              element.classList.remove(className);
+            // Cache the classList object
+            const classList = element.classList;
+            classList.toggle(className);
 
-              // Check if the element has any classes remaining
-              if (element.classList.length === 0) {
-                // If no classes remain on the element, remove the class attribute from the element
-                element.removeAttribute("class");
-              }
-            } else {
-              element.classList.add(className);
+            // Remove the attribute if no other values are found
+            if (!classList.length) {
+              element.removeAttribute("class");
             }
           });
-          // Allow method chaining
           return methods;
         },
 
