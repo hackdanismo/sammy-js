@@ -1,5 +1,5 @@
 /*
- * sammy.js v1.0.2
+ * sammy.js v1.0.3
  * Open Source JavaScript Library
  * https://github.com/hackdanismo/sammy-js
  *
@@ -7,7 +7,7 @@
  * Released under the GPL-3.0 license
  * https://github.com/hackdanismo/sammy-js?tab=GPL-3.0-1-ov-file
  *
- * Date: 2024-08-25
+ * Date: 2024-09-28
  */
 
 ((window, document) => {
@@ -15,7 +15,7 @@
 
   const sammyLibrary = {
     // Property that outputs the version of the library
-    version: "1.0.2",
+    version: "1.0.3",
 
     sammy(selector) {
       let elements = [];
@@ -58,7 +58,7 @@
 
       const methods = {
         // Add a class to an element in the DOM
-        addClass: function(className) {
+        addClass(className) {
           elements.forEach((element) => {
            // Cache the classList object
            const classList = element.classList;
@@ -69,7 +69,7 @@
         },
 
         // Remove a class from an element and the class attribute if no classes remain
-        removeClass: function(className) {
+        removeClass(className) {
           elements.forEach((element) => {
             // Cache the classList object
             const classList = element.classList;
@@ -83,7 +83,7 @@
           return methods;
         },
 
-        toggleClass: function(className) {
+        toggleClass(className) {
           elements.forEach((element) => {
             // Cache the classList object
             const classList = element.classList;
@@ -98,7 +98,7 @@
         },
 
         // Toggle the visibility of elements, switching between show and hide
-        toggle: function() {
+        toggle() {
           elements.forEach((element) => {
             if (window.getComputedStyle(element).display === "none") {
               element.style.display = "";
@@ -115,7 +115,7 @@
         },
 
         // Add an attribute to an element. This requires a name and a value
-        addAttribute: function(attributeName, attributeValue) {
+        addAttribute(attributeName, attributeValue) {
           // Throw an error if either the name and/or value is not provided as an argument
           if (attributeName === undefined || attributeValue === undefined || attributeName === null || attributeValue === null) {
             throw new Error("Both attribute name and value must be provided and cannot be null.");
@@ -128,7 +128,7 @@
         },
 
         // Remove an attribute from an element
-        removeAttribute: function(attributeName) {
+        removeAttribute(attributeName) {
           elements.forEach((element) => {
             element.removeAttribute(attributeName);
           });
@@ -137,7 +137,7 @@
         },
 
         // Apply styles to all elements matched by the selector
-        css: function(property, value) {
+        css(property, value) {
           if (typeof property === "string" && value === undefined) {
             // Get the style for the first element
             return elements[0] ? window.getComputedStyle(elements[0])[property] : undefined;
@@ -150,7 +150,7 @@
         },
 
         // Add an event listener to elements
-        on: function(eventType, callback) {
+        on(eventType, callback) {
           if (typeof eventType !== "string" || typeof callback !== "function") {
             throw new Error("Event type must be a string and callback must be a function.");
           }
@@ -164,7 +164,7 @@
         },
 
         // Get or set the inner HTML of an element to allow manipulation of its content
-        html: function(htmlContent) {
+        html(htmlContent) {
           if (htmlContent === undefined) {
             // Return the HTML content of the first element
             return elements[0] ? elements[0].innerHTML : undefined;
@@ -177,7 +177,7 @@
         },
 
         // Get or set the text content of an element and working with text nodes
-        text: function(textContent) {
+        text(textContent) {
           if (textContent === undefined) {
             // Return the text content of the first element
             return elements[0] ? elements[0].textContent : undefined;
@@ -190,7 +190,7 @@
         },
 
         // Apply style attribute to set the display to be none to hide an element
-        hide: function() {
+        hide() {
           elements.forEach((element) => {
             element.style.display = "none";
           });
@@ -199,7 +199,7 @@
         },
 
         // Apply style attribute to set the display to be empty to show a hidden element
-        show: function() {
+        show() {
           elements.forEach((element) => {
             // Reset to the default display value
             element.style.display = "";
@@ -214,7 +214,7 @@
         },
 
         // Helper method to handle both append and prepend
-        _manipulateContent: function(content, position) {
+        _manipulateContent(content, position) {
           elements.forEach((element) => {
             if (typeof content === "string") {
               element.insertAdjacentHTML(position, content);
@@ -231,17 +231,17 @@
         },
 
         // Method to add elements or content at the beginning of a selected element
-        append: function(content) {
+        append(content) {
           return methods._manipulateContent(content, "beforeend");
         },
 
         // Method to add elements or content at the end of a selected element
-        prepend: function(content) {
+        prepend(content) {
           return methods._manipulateContent(content, "afterbegin");
         },
 
         // Remove select elements from the DOM
-        remove: function() {
+        remove() {
           elements.forEach((element) => {
             element.remove();
           });
