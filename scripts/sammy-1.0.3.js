@@ -10,7 +10,8 @@
  * Date: 2024-09-28
  */
 
-((globalThis, document) => {
+// Global Object and Document parameters
+((go, d) => {
   "use strict";
 
   const sammyLibrary = {
@@ -23,7 +24,7 @@
       // Functionality to handle both CSS selectors as strings and individual DOM elements
       if (typeof selector === "string") {
         // Select elements based on the selector parameter if the selector is a string
-        elements = document.querySelectorAll(selector);
+        elements = d.querySelectorAll(selector);
 
         // Warn if no elements are found
         if (elements.length === 0) {
@@ -255,19 +256,19 @@
 
     // The ready function for loading the library
     ready(fn) {
-      if (document.readyState !== "loading") {
+      if (d.readyState !== "loading") {
         fn();
       } else {
-        document.addEventListener("DOMContentLoaded", fn);
+        d.addEventListener("DOMContentLoaded", fn);
       }
     },
   };
 
   // Keep the original namespace clean and only expose the methods in the library globally
-  globalThis.sammy = sammyLibrary.sammy;
-  globalThis.sammy.ready = sammyLibrary.ready;
+  go.sammy = sammyLibrary.sammy;
+  go.sammy.ready = sammyLibrary.ready;
   // Expose the version number property globally
-  globalThis.sammy.version = sammyLibrary.version;
+  go.sammy.version = sammyLibrary.version;
 })(
   // Check for the global object type to use within the library
   typeof globalThis !== "undefined" // Default
