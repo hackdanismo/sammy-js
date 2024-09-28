@@ -10,7 +10,7 @@
  * Date: 2024-09-28
  */
 
-((window, document) => {
+((globalThis, document) => {
   "use strict";
 
   const sammyLibrary = {
@@ -264,8 +264,20 @@
   };
 
   // Keep the original namespace clean and only expose the methods in the library globally
-  window.sammy = sammyLibrary.sammy;
-  window.sammy.ready = sammyLibrary.ready;
+  globalThis.sammy = sammyLibrary.sammy;
+  globalThis.sammy.ready = sammyLibrary.ready;
   // Expose the version number property globally
-  window.sammy.version = sammyLibrary.version;
-})(window, document);
+  globalThis.sammy.version = sammyLibrary.version;
+})(
+  // Check for the global object type to use within the library
+  typeof globalThis !== "undefined" // Default
+    ? globalThis 
+    : typeof window !== "undefined" // Used for browsers
+    ? window
+    : typeof self !== "undefined" // Used for browsers
+    ? self
+    : typeof global !== "undefined" // Used for Node as window and self are not defined
+    ? global
+    : {},
+  typeof document !== "undefined" ? document : undefined
+);
